@@ -7,11 +7,8 @@
 #include <ngx_palloc.h>
 #include <vector>
 
-
-
-
 int main(){
-    ngx_pool_t pool;
-    std::vector<char,Alloctor<char>>v(&pool);
+    auto  *pool=new ngx_pool_t;
+    std::vector<char,Alloctor<char>>v(pool);
     return 0;
 }

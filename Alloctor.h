@@ -10,7 +10,9 @@
 #include <ngx_core.h>
 #include <ngx_palloc.h>
 
-
+void pr(){
+    printf("test");
+}
 template <typename  T>
 class Alloctor :public Wrapper<ngx_pool_t>{
 public:
@@ -29,10 +31,11 @@ public:
         return reinterpret_cast<pointer_type >(ngx_pnalloc(get(),n*sizeof(T)));
     }
 
+
+
     void deallocate(pointer ptr, size_type n){
         boost::ignore_unused(n);
         ngx_pfree(get(),ptr);
-
     }
 };
 
