@@ -15,10 +15,10 @@ public:
     typedef wrapped_type *pointer_type;
 
 
-
     pointer_type get()const {
         return m_ptr;
     }
+
     operator bool()const {
         return get();
     }
@@ -32,7 +32,7 @@ public:
 private:
     pointer_type m_ptr= nullptr;
 protected:
-    Wrapper(pointer_type *x):m_ptr(x){}
+    Wrapper(pointer_type x):m_ptr(x){}
     Wrapper(reference_type x):m_ptr(&x){}
     ~Wrapper()= default;
 
